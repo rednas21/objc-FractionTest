@@ -16,6 +16,21 @@ int main(int argc, const char * argv[]) {
         myFraction.denominator = 3;
         
         NSLog(@"The numerator is %i, and the denominator is %i.", myFraction.numerator, myFraction.denominator);
+        
+        Fraction *aFraction = [[Fraction alloc] init];
+        Fraction *bFraction = [[Fraction alloc] init];
+        Fraction *resultFraction;
+        
+        [aFraction setTo: 1 over: 4];
+        [bFraction setTo: 1 over: 2];
+        
+        [aFraction print];
+        NSLog(@"+");
+        [bFraction print];
+        NSLog(@"=");
+        
+        resultFraction = [aFraction add: bFraction];
+        [resultFraction print];
     }
     
     return 0;

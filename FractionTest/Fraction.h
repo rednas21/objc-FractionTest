@@ -14,7 +14,10 @@
 
 @property int numerator, denominator;
 
--(void)   print;
--(double) convertToNum;
+-(void)         print;
+-(void)         setTo: (int) n over: (int) d;
+-(Fraction *)   add: (Fraction *) f;
+-(void)         reduce;
+-(double)       convertToNum;
 
 @end
