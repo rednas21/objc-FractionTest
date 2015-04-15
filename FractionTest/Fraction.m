@@ -35,6 +35,42 @@
     return result;
 }
 
+-(Fraction *) subtract: (Fraction *) f
+{
+    Fraction *result = [[Fraction alloc] init];
+    
+    result.numerator = numerator * f.denominator - f.numerator * denominator;
+    result.denominator = denominator * f.denominator;
+    
+    [result reduce];
+    
+    return result;
+}
+
+-(Fraction *) multiply: (Fraction *) f
+{
+    Fraction *result = [[Fraction alloc] init];
+    
+    result.numerator = numerator * f.numerator;
+    result.denominator = denominator * f.denominator;
+    
+    [result reduce];
+    
+    return result;
+}
+
+-(Fraction *) divide: (Fraction *) f
+{
+    Fraction *result = [[Fraction alloc] init];
+    
+    result.numerator = numerator * f.denominator;
+    result.denominator = denominator * f.numerator;
+    
+    [result reduce];
+    
+    return result;
+}
+
 -(void) reduce
 {
     int u = numerator;
@@ -50,6 +86,16 @@
     
     numerator /= u;
     denominator /= u;
+    
+    [self check];
+}
+
+-(void) check
+{
+    if (denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+    }
 }
 
 -(double) convertToNum
